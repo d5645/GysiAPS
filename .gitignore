@@ -1,4 +1,6 @@
 __pycache__/
+.conda/
+.vscode/
 *.pyc
 *.pyo
 *.pyd
