@@ -1,9 +1,10 @@
-from mongodao import MongoDAO
+from .mongodao import MongoDAO
 
 class UserDao():
     def getUserByUsername(self, username: str):
         with MongoDAO() as mongo_dao:
-            collection = mongo_dao.getCollection("sys_user")
+            collection = mongo_dao.getCollection("user")
+            print(f"查询用户：{username}")
             user = collection.find_one({"username": username})
             return user
         return None
@@ -11,21 +12,21 @@ class UserDao():
 
     def createUser(self, username: str, password: str):
         with MongoDAO() as mongo_dao:
-            collection = mongo_dao.getCollection("sys_user")
+            collection = mongo_dao.getCollection("user")
             result = collection.insert_one({"username": username, "password": password})
             return result.inserted_id
         return None
 
     def deleteUser(self, username: str):
         with MongoDAO() as mongo_dao:
-            collection = mongo_dao.getCollection("sys_user")
+            collection = mongo_dao.getCollection("user")
             result = collection.delete_one({"username": username})
             return result.deleted_count
         return None
 
     def getUserList(self):
         with MongoDAO() as mongo_dao:
-            collection = mongo_dao.getCollection("sys_user")
+            collection = mongo_dao.getCollection("user")
             users = collection.find()
             return list(users)
         return None

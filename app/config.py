@@ -8,7 +8,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://user:pass@localhost:3306/dbname'
+    SQLALCHEMY_DATABASE_URI = 'mongodb://localhost:27017/'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class ProductionConfig(Config):

@@ -7,7 +7,7 @@ from typing import Dict, List, Optional, Any
 
 class MongoDAO():
     def __init__(self, host: str = 'localhost', port: int = 27017, 
-                 username: Optional[str] = None, db_name: str = "GysiAPS",
+                 username: Optional[str] = None, db_name: str = "test",
                  password: Optional[str] = None, auth_source: str = 'admin'):
         """
         初始化MongoDB连接
